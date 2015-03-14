@@ -36,15 +36,24 @@
 
 
   5. Employee must inherit from Department properties
+<<<<<<< HEAD
   6. Manager must inherit from Department properties
   7. Department must inherit from Company properties
+=======
+  6. Manager must inherit Department properties
+  7. Department must inherit Company properties
+>>>>>>> a1819c2e680fbf4f29f9160a16439de137c8af49
   8. Create a global variable that holds your name and have
       each type of object have a property named `creator`
       with the value of that variable.
 
 */
 
+<<<<<<< HEAD
 var creator = "Rolando Bernal";
+=======
+var creator = "Steve";
+>>>>>>> a1819c2e680fbf4f29f9160a16439de137c8af49
 
 // Define the Company function
 function Company (name) {
@@ -56,6 +65,7 @@ function Company (name) {
 function Department (name) {
   this.department = name;
 }
+<<<<<<< HEAD
 Department.prototype = new Company("Lando B Web Solutions");
 
 var department = new Department();
@@ -78,6 +88,23 @@ function Employee (firstN, lastN, age, marStatus, salary) {
   this.lastName = lastN;
   this.age = age;
   this.marStatus = marStatus;
+=======
+Department.prototype = new Company("Lonely Planet");
+
+// Define the Manager function
+function Manager (first, last) {
+  this.firstName = first;
+  this.lastName = last;
+}
+Manager.prototype = new Department("Software");
+
+// Define the Employee function.
+function Employee (first, last, age, status, salary) {
+  this.first = first;
+  this.last = last;
+  this.age = age;
+  this.status = status;
+>>>>>>> a1819c2e680fbf4f29f9160a16439de137c8af49
   this.salary = salary;
 }
 Employee.prototype = new Department("Software");
@@ -93,6 +120,7 @@ Employee.prototype.setDepartment = function (department) {
   this.department = department;
 }
 
+<<<<<<< HEAD
 var Steve = new Employee("Steve", "Brownlee", "Age", "Married", "1000000");
 //console.log(Steve);
 
@@ -110,9 +138,31 @@ Employee.prototype.setHourlyWage = function (hourlyWage) {
   // object, but can be overriden at any time by each Employee
   return this.salary / 2080;
 }
+=======
+Employee.prototype.getHourlyWage = function () {
+  return parseInt(this.salary) / 2080;
+}
+
+
+
+
+Employee.prototype.setManager = function (first, last) {
+  this.manager = new Manager(first, last);
+}
+
+
+
+var Steve = new Employee("Steve", "Brownlee", "Age", "Married", 1000000);
+>>>>>>> a1819c2e680fbf4f29f9160a16439de137c8af49
 
 // Change the department for an employee to override the default
 Steve.setDepartment("Accounting");
+Steve.setManager("John", "Wark");
+Steve.setManager("Dave", "Nolan");
+Steve.setManager("Space", "Ghost");
+
+
+
 
 // Change the manager for an employee to override the default
 Steve.setManager("John", "Smith");
@@ -123,3 +173,12 @@ console.log('HOURLY SALARY:', Steve.setHourlyWage());
 
 // Show the employee's properties
 console.log(Steve);
+
+
+
+
+
+
+
+
+
